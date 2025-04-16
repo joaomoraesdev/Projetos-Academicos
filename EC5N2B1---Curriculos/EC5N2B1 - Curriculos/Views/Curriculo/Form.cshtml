@@ -1,0 +1,148 @@
+﻿@model CurriculoViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-gap: 100px;
+        margin: 50px auto;
+    }
+</style>
+
+<form action="/Curriculo/Salvar/" method="post" class="col-lg-12" style="background-color: lightgrey;">
+    <h2 class="text-center">Cadastro de Currículo</h2>
+    <div class="text-center grid-container">
+        <div class="grid-child" style="text-align: left">
+            <h3>Dados Pessoais</h3>
+            <label for="Id_Pessoa" class="control-label"> ID Pessoal </label>
+            <br />
+            <input type="number" Name="dadosPessoais.Id_Pessoa" value="@Model.dadosPessoais.Id_Pessoa" />
+            <br />
+
+            <label for="Nome" class="control-label">Nome Completo</label>
+            <br />
+            <input type="text" Name="dadosPessoais.Nome" value="@Model.dadosPessoais.Nome" />
+            <br />
+
+            <label for="Cpf" class="control-label">CPF</label>
+            <br />
+            <input type="text" Name="dadosPessoais.Cpf" value="@Model.dadosPessoais.Cpf" />
+            <br />
+
+            <label for="Endereco" class="control-label">Endereço</label>
+            <br />
+            <input type="text" Name="dadosPessoais.Endereco" value="@Model.dadosPessoais.Endereco" />
+            <br />
+
+            <label for="Telefone" class="control-label">Telefone</label>
+            <br />
+            <input type="text" Name="dadosPessoais.Telefone" value="@Model.dadosPessoais.Telefone" />
+            <br />
+
+            <label for="Email" class="control-label">Email</label>
+            <br />
+            <input type="text" Name="dadosPessoais.Email" value="@Model.dadosPessoais.Email" />
+            <br />
+
+            <label for="Pret_Salarial" class="control-label">Pretensão Salarial</label>
+            <br />
+            <input type="number" step="0.01" Name="dadosPessoais.Pret_Salarial" value="@Model.dadosPessoais.Pret_Salarial" />
+            <br />
+
+            <label for="Cargo_Pret" class="control-label">Cargo Pretendido</label>
+            <br />
+            <input type="text" Name="dadosPessoais.Cargo_Pret" value="@Model.dadosPessoais.Cargo_Pret" />
+        </div>
+
+        <div class="grid-child" style="text-align: left">
+            <h3>Formação Acadêmica</h3>
+            <label for="Id_Formacao" class="control-label"> ID de Formação </label>
+            <br />
+            <input type="number" Name="formacaoAcademica.Id_Formacao" value="@Model.formacaoAcademica.Id_Formacao" />
+            <br />
+
+            <label for="Instituicao" class="control-label">Instituição</label>
+            <br />
+            <input type="text" Name="formacaoAcademica.Instituicao" value="@Model.formacaoAcademica.Instituicao" />
+            <br />
+
+            <label for="Descricao" class="control-label">Descrição</label>
+            <br />
+            <input type="text" Name="formacaoAcademica.Descricao" value="@Model.formacaoAcademica.Descricao" />
+            <br />
+
+            <label for="Data_Inicio" class="control-label"> Data de Ingressão</label>
+            <br />
+            <input type="date" Name="formacaoAcademica.Data_Inicio" value="@Model.formacaoAcademica.Data_Inicio.ToString("MM-dd")" />
+            <br />
+
+            <label for="Data_Termino" class="control-label"> Data de Conclusão</label>
+            <br />
+            <input type="date" Name="formacaoAcademica.Data_Termino" value="@Model.formacaoAcademica.Data_Termino.ToString("MM-dd")" />
+            <br />
+        </div>
+
+        <div class="grid-child" style="text-align: left">
+            <h3>Histórico Profissional</h3>
+            <label for="Id_Historico" class="control-label"> ID do Histórico </label>
+            <br />
+            <input type="number" Name="historicoProfissional.Id_Historico" value="@Model.historicoProfissional.Id_Historico" />
+            <br />
+
+            <label for="Empresa" class="control-label">Empresa</label>
+            <br />
+            <input type="text" Name="historicoProfissional.Empresa" value="@Model.historicoProfissional.Empresa" />
+            <br />
+
+            <label for="Cargo" class="control-label">Cargo</label>
+            <br />
+            <input type="text" Name="historicoProfissional.Cargo" value="@Model.historicoProfissional.Cargo" />
+            <br />
+
+            <label for="Descricao" class="control-label">Descrição</label>
+            <br />
+            <input type="text" Name="historicoProfissional.Descricao" value="@Model.historicoProfissional.Descricao" />
+            <br />
+
+            <label for="Data_Inicio" class="control-label"> Data de Ingressão</label>
+            <br />
+            <input type="date" Name="historicoProfissional.Data_Inicio" value="@Model.historicoProfissional.Data_Inicio.ToString("MM-dd")" />
+            <br />
+
+            <label for="Data_Termino" class="control-label"> Data de Conclusão</label>
+            <br />
+            <input type="date" Name="historicoProfissional.Data_Termino" value="@Model.historicoProfissional.Data_Termino.ToString("MM-dd")" />
+            <br />
+        </div>
+
+        <div class="grid-child" style="text-align: left">
+            <h3>Competências</h3>
+            <label for="Id_Competencias" class="control-label"> ID do Competencias </label>
+            <br />
+            <input type="number" Name="competencias.Id_Competencias" value="@Model.competencias.Id_Competencias" />
+            <br />
+
+            <label for="Categoria" class="control-label">Categoria</label>
+            <br />
+            <input type="text" Name="competencias.Categoria" value="@Model.competencias.Categoria" />
+            <br />
+
+            <label for="Descricao" class="control-label">Descrição</label>
+            <br />
+            <input type="text" Name="competencias.Descricao" value="@Model.competencias.Descricao" />
+            <br />
+
+            <label for="Nivel" class="control-label">Nível de Aptidão</label>
+            <br />
+            <input type="text" Name="competencias.Nivel" value="@Model.competencias.Nivel" />
+            <br />
+        </div>
+
+        <input type="submit" value="Salvar dados" class="btn btn-success" />
+        <br />
+    </div>
+
+</form>
