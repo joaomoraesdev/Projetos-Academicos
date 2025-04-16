@@ -1,0 +1,32 @@
+<!-- Views/Shared/_MyModalContent.cshtml -->
+<head>
+    <meta charset="UTF-8">
+    <title>Informações do Usuário</title>
+    <link rel="stylesheet" href="../css/perfil.css">
+    <link rel="stylesheet" href="../css/comunidade.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<div class="modal-content">
+    <span class="close" onclick="comunidade().closeModal()">&times;</span>
+    <h2>Nova Postagem</h2>
+    
+    <div class="modal-body">
+        <!-- Caixa de texto para digitar o conteúdo da postagem -->
+        <input id="idPostModal" type="hidden">
+        <input id="idUsuarioModal" type="hidden">
+        <input id="qtdCurtidasModal" type="hidden">
+        <input id="qtdImpulsionamentoModal" type="hidden">
+        
+        <textarea id="postContent" class="input-post" placeholder="Digite sua postagem..."></textarea>
+
+
+        <!-- Botão para escolher arquivos -->
+        <input type="file" id="fileInput" class="file-input" accept="image/*" onchange="comunidade().onchangeInputFile(event)" />
+        <div id="previewContainer" class="preview-container"></div>
+
+
+        
+        <!-- Botão para enviar a postagem -->
+        <button class="botao-enviar" onclick="comunidade().cadastrarPost()">Enviar</button>
+    </div>
+</div>

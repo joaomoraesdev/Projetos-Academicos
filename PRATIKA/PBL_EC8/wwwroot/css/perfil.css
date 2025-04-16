@@ -1,0 +1,168 @@
+/* Estilo geral da página */
+body {
+    font-family: 'Roboto', sans-serif; /* Usar uma tipografia mais moderna */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Organiza os elementos de cima para baixo */
+    gap: 20px; /* Espaço entre os elementos */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.perfil{
+    display: grid;
+    grid-template-rows: auto 1fr; /* Defina as linhas da grid */
+    gap: 20px; /* Espaçamento entre as linhas */
+}
+
+/* Container principal do perfil */
+.user-container {
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    border-radius: 12px; 
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Sombra mais forte para dar profundidade */
+    margin-top: 0px;
+    position: absolute; /* Posicionamento absoluto */
+    top: 20px; /* Distância do topo */
+    left: 20px; 
+    width: 100%;
+}
+
+/* Foto do perfil */
+.user-container .profile-pic {
+    border-radius: 50%;
+    object-fit: cover;
+    width: 120px; /* Tamanho consistente para a imagem */
+    height: 120px;
+    margin-bottom: 20px;
+    border: 4px solid #00FF0A; /* Borda verde para combinar com o tema */
+}
+
+/* Nome do perfil */
+.nome-perfil {
+    font-size: 2.4rem; /* Aumenta um pouco o tamanho do nome */
+    color: #00FF0A; /* Verde destacado */
+    margin-bottom: 10px;
+    font-weight: 700; /* Fonte mais forte */
+    letter-spacing: 0.5px; /* Um pouco de espaçamento entre letras */
+}
+
+/* Informações gerais do perfil */
+.informacoes-perfil {
+    font-size: 1.2rem; /* Aumenta um pouco o tamanho da fonte */
+    color: #9ff7a2; /* Verde mais claro */
+    margin: 8px 0;
+    font-weight: 400;
+}
+
+/* Container das informações adicionais */
+.user-informacoes-adicionais {
+    display: flex;
+    align-items: center;
+    gap: 40px; /* Aumenta o espaçamento entre os itens */
+    margin-top: 20px;
+    width: 100%;
+    flex-wrap: wrap; /* Permite que os itens se ajustem se necessário */
+}
+
+
+.user-informacoes-adicionais span::before {
+    content: '\2022'; /* 
+    left: 0; /* Coloca a bolinha à esquerda do conteúdo */
+    align-items: center;
+    top: 50%;
+    transform: translateY(-10%); /* Alinha a bolinha verticalmente no centro */
+    font-size: 1.5rem; /* Tamanho da bolinha */
+    color: #00FF0A; /* Cor da bolinha (pode ser qualquer cor que preferir) */
+}
+
+
+/* Cada item dentro do container de informações adicionais */
+.user-informacoes-adicionais span {
+    font-size: 1.1rem; /* Ajusta o tamanho da fonte */
+    color: #9ff7a2;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Espaçamento entre o texto e ícones, caso existam */
+}
+
+.user-informacoes-pincipais{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Estilos para as abas */
+.tabs {
+    display: flex;
+    margin-top: 20px; /* Espaçamento entre as informações e as abas */
+    border-bottom: 2px solid #ddd; /* Linha abaixo das abas */
+    justify-content: flex-end; /* Alinha as abas à direita */
+}
+
+.tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    border: 1px solid #00FF0A;
+    margin-left: 10px; /* Espaçamento entre as abas */
+    color:#f1f1f1
+}
+
+.tab:hover {
+    background-color: #9ff7a2; /* Cor de fundo quando o usuário passa o mouse */
+    color:black
+}
+
+.tab.active {
+    background-color: #00FF0A; /* Cor verde para a aba ativa */
+    color: white;
+    border-bottom: 2px solid #00FF0A; /* Linha embaixo da aba ativa */
+}
+
+.conteudo-tab{
+    align-items: center;
+    
+    clear: both; /* Garante que a div de conteúdo não sobreponha a anterior */
+    margin-top: 20px;
+}
+.tab-pane {
+    display: block; /* Mantém o conteúdo visível, mas reduz o espaço se não ativo */
+    max-height: 0; /* Esconde o conteúdo não ativo */
+    overflow: hidden; /* Evita o conteúdo transbordar */
+    opacity: 0; /* Torna o conteúdo invisível */
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out; /* Transição suave */
+    margin-top: 10px;
+}
+
+.tab-pane.active {
+    max-height: 100%; /* Altura suficiente para mostrar o conteúdo */
+    opacity: 1; /* Torna o conteúdo visível */
+}
+
+.icons-edicao{
+    display: flex;
+    justify-content: flex-end; /* Move para o canto direito */
+    align-items: flex-end;
+}
+
+.botao-edicao{
+    width: 35px;
+}
+
+.botao-edicao:hover{
+    cursor: pointer;
+    width: 37px;
+}
+
+.tab-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}

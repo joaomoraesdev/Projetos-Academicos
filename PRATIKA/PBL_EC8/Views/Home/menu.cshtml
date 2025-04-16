@@ -1,0 +1,41 @@
+@{
+    ViewData["Title"] = "PRATIKA";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/menu.css">
+    <script src="../js/loginUsuario.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>PRATIKA</title>
+</head>
+
+<body>
+
+    <main>
+        <!-- Caixa centralizada com campos de login -->
+        <div class="login-box">
+            <img src="../img/pump2_preenchido.png">
+            <label>Login</label>
+            <input class="campos-menu" name="textboxLogin" id="textboxLogin" type="text">
+            <br>
+            <label>Senha</label>
+            <input class="campos-menu" name="textboxSenha" id="textboxSenha" type="password">
+            <br>
+            <div class="div-labels">
+                <label class="label-menu" onclick="alert('Recuperação de senha iniciada')">Esqueci minha senha</label>
+                <a class="label-menu" asp-area="" asp-controller="Home" asp-action="CadastroUsuario">Cadastre-se</a>
+            </div>
+            <br>
+            <button class="botao-login" name="" id="btnLogin" onclick="loginUsuario().validacaoLogin();">Login</button>
+        </div>
+    </main>
+
+</body>
+
+</html>

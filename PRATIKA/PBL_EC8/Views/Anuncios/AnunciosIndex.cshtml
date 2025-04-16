@@ -1,0 +1,130 @@
+@model UsuarioDto;
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="../css/anuncios.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="../js/anuncios.js"></script>
+    <title>Anúncios</title>
+</head>
+
+<body data-page="anuncios">
+    <div class="sidebar-container">
+        @await Html.PartialAsync("_MenuLateral")
+    </div>
+    <header class="header-container">
+        <div class="search-container">
+            <input type="text" id="textboxPesquisaAnuncios" class="search-box" placeholder="Pesquise um anúncio" />
+            <button type="submit" onclick="anuncios().pesquisarAnuncio();">
+                <i class="fa fa-search search-icon"></i>
+            </button>
+            <button type="submit" class="btnLimparPesquisa" onclick="comunidade().limparSearchbar();">Limpar</button>
+        </div>
+    </header>
+    <main>
+        <div class="anuncios">
+            <div id="divAnuncios"></div>
+
+            <div id="modalCadastroAnuncio" class="modal">
+             <input id="idAnuncioModal" type="hidden">
+                    <input id="idUsuarioModal" type="hidden">
+                <div class="modal-content">
+                   
+                    <span class="close" onclick="anuncios().fecharModalCadastrarAnuncio()">&times;</span>
+                    <h2>Anúncio</h2>
+                    <br>
+                    <div id="divImagemPerfil">
+                        <img id="imgPreview" src="#" alt="Imagem do anunciante" />
+                    </div>
+
+                    <label for="textboxTitulo">Título:</label>
+                    <input type="text" id="textboxTitulo" placeholder="Digite o título do anúncio"
+                        class="campos-cadastro" required>
+                    <br>
+                    <br>
+                    <div class="form-group row">
+                        <div class="input-container column input-profissao">
+                            <label for="textboxProfissao">Profissão:</label>
+                            <input type="text" id="textboxProfissao" placeholder="Digite sua profissão"
+                                class="campos-cadastro" required>
+                            <br>
+                        </div>
+
+                        <div class="input-container column input-estado">
+                            <label for="comboEstado">Estado:</label>
+                            <select id="comboEstado" class="campos-cadastro" style="height: 49px;" required>
+                                <option value="" disabled selected>Selecione</option>
+                                <option value="AC">AC</option>
+                                <option value="AL">AL</option>
+                                <option value="AP">AP</option>
+                                <option value="AM">AM</option>
+                                <option value="BA">BA</option>
+                                <option value="CE">CE</option>
+                                <option value="DF">DF</option>
+                                <option value="ES">ES</option>
+                                <option value="GO">GO</option>
+                                <option value="MA">MA</option>
+                                <option value="MT">MT</option>
+                                <option value="MS">MS</option>
+                                <option value="MG">MG</option>
+                                <option value="PA">PA</option>
+                                <option value="PB">PB</option>
+                                <option value="PR">PR</option>
+                                <option value="PE">PE</option>
+                                <option value="PI">PI</option>
+                                <option value="RJ">RJ</option>
+                                <option value="RN">RN</option>
+                                <option value="RS">RS</option>
+                                <option value="RO">RO</option>
+                                <option value="RR">RR</option>
+                                <option value="SC">SC</option>
+                                <option value="SP">SP</option>
+                                <option value="SE">SE</option>
+                                <option value="TO">TO</option>
+                            </select>
+                        </div>
+
+                        <div class="input-container column input-cidade">
+                            <label for="textboxCidade">Cidade:</label>
+                            <input type="text" id="textboxCidade" placeholder="Digite sua cidade"
+                                class="campos-cadastro" required>
+                        </div>
+                    </div>
+                    <br>
+                    <label for="textareaDescricao">Descrição:</label>
+                    <textarea id="textareaDescricao" placeholder="Digite uma descrição" class="campos-cadastro"
+                        required></textarea>
+                    <br>
+                    <br>
+                    <button id="btnCadastrarAnuncio" class="btnCriacaoConteudo"
+                        onclick="anuncios().cadastrarAnuncio();">Cadastrar Anúncio</button>
+                </div>
+            </div>
+
+            <div id="modalPerfilInvalido" class="modal">
+                <div class="modal-content">
+                    <h2>Perfil inválido!</h2>
+                    <br>
+                    <label>Anuncie seu trabalho assinando nosso plano Premium!</label>
+                    <br>
+                    <div>
+                        <button id="btnCadastrarAnuncio" onclick="anuncios().fecharModalPerfilInvalido();">Vamos
+                            lá!</button>
+                        <button id="btnCadastrarAnuncio"
+                            onclick="anuncios().fecharModalPerfilInvalido();">Fechar</button>
+
+                    </div>
+                </div>
+            </div>
+
+            @Html.Partial("_ValidacaoJwt")
+        </div>
+    </main>
+</body>
+
+</html>

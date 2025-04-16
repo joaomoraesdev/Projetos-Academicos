@@ -1,0 +1,13 @@
+# Ignorar bin e obj
+PBL_EC8/bin/
+PBL_EC8/obj/
+
+# Ignorar arquivos de log
+*.log
+
+# Ignorar arquivos de configuração específicos do sistema operacional
+.DS_Store
+
+# Ignorar arquivos de IDEs específicas
+.idea/
+.vscode/

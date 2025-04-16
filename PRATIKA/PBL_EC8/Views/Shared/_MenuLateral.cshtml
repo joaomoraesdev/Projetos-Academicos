@@ -1,0 +1,74 @@
+<head>
+    <link rel="stylesheet" href="../css/menuLateral.css">
+    <script src="../js/menuLateral.js"></script>
+    <script src="../js/comunidade.js"></script>
+</head>
+<div class="header">
+    <img src="../img/pump2_preenchido.png" class="header-icon left-icon">
+    <img src="../img/logout.png" class="header-icon right-icon" onclick="logout();">
+</div>
+<br>
+<br>
+<div>
+    <ul class="navbar-nav flex-grow-1">
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Comunidade"
+                asp-action="ComunidadeIndex">Comunidade</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" href="javascript:void(0);" onclick="menuLateral().verificaPerfil();">Anúncios</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Marketplace" asp-action="MarketplaceIndex">Marketplace</a>
+        </li>
+    </ul>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <button onclick="comunidade().abrirModalNovaPostagem();" class="btnCriacaoConteudo" id="btnCriacaoConteudo">Postar</button>
+    <br>
+    <br>
+    <div class="user-info">
+        <img id="imgPerfil" src="../img/default_usuario.png" alt="Avatar do usuário" class="user-avatar"
+            onclick="acessarPerfil();">
+        <label class="nomeUsuario" onclick="acessarPerfil();" id="lblNomeUsuario"></label>
+    </div>
+</div>
+
+<script>
+
+    function acessarPerfil() {
+        window.location.href = '/Home/Perfil'; // Certifique-se de que o caminho está correto
+    }
+
+
+
+    function logout() {
+        localStorage.removeItem('jwtToken');
+        sessionStorage.removeItem('jwtToken');
+
+        window.location.href = '/';
+
+        history.pushState(null, null, location.href);
+
+    }
+
+    $(document).ready(function () {
+        $.ajax({
+            url: base_path + "/Home/BuscaSessionInfos",
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                $('#lblNomeUsuario').text('@@' + data.usuario);
+                $('#imgPerfil').attr('src', data.imagemPerfil).show();
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.error('Erro na requisição:', textStatus, errorThrown);
+            }
+        });
+    });
+</script>

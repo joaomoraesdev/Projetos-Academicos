@@ -1,0 +1,98 @@
+@{
+    ViewData["Title"] = "PRATIKA";
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../js/cadastroUsuario.js" defer></script>
+    <link rel="stylesheet" href="../css/cadastroUsuario.css">
+    <title>PRATIKA</title>
+</head>
+
+<body>
+    <div class="login-box">
+        <img src="../img/pump2_preenchido.png" class="img-logo" onclick="">
+        <br>
+        <div id="divImagemPerfil" hidden>
+            <img id="imagePreview" src="#" alt="Imagem do perfil" />
+        </div>
+        <br>
+        <form id="uploadForm">
+            <input type="file" id="imagemInput" onchange="cadastroUsuario().inserirImagem(this);"
+                accept="image/png, image/jpeg" required>
+        </form>
+        <br>
+        <input name="textboxNomeUsuario" id="textboxNomeUsuario" type="text" placeholder="Nome de Usuário"
+            class="campos-menu">
+        <br>
+        <input name="textboxNome" id="textboxNome" type="text" placeholder="Nome" class="campos-menu">
+        <br>
+        <input name="textboxSobrenome" id="textboxSobrenome" type="text" placeholder="Sobrenome" class="campos-menu">
+        <br>
+        <input name="textboxEmail" id="textboxEmail" type="text" placeholder="Email" class="campos-menu">
+        <br>
+        <input name="textboxSenha" id="textboxSenha" type="password" placeholder="Senha" class="campos-menu">
+        <br>
+        <input name="textboxConfirmacaoSenha" id="textboxConfirmacaoSenha" type="password"
+            placeholder="Confirme sua senha" class="campos-menu">
+        <br>
+        <input name="textboxDataNascimento" id="textboxDataNascimento" type="date" placeholder="Data de nascimento"
+            class="campos-menu">
+        <br>
+        <select name="comboGenero" id="comboGenero" placeholder="Genero" class="campos-menu">
+            <option value="" disabled selected>Selecione um Gênero</option>
+            <option>Masculino</option>
+            <option>Feminino</option>
+            <option>Outro</option>
+        </select>
+        <br>
+        <select name="comboPerfil" id="comboPerfil" class="campos-menu">
+            <option value="" disabled selected>Selecione um Perfil</option>
+            <option>Básico</option>
+            <option>Premium</option>
+        </select>
+        <br>
+        <textarea name="textareaDescricao" id="textareaDescricao" type="text" placeholder="Descrição"
+            class="campos-menu"></textarea>
+        <br>
+        <div class="divBotoeos">
+            <button class="botao-login" name="btnCadastrar" id="btnCadastrar"
+                onclick="cadastroUsuario().voltar();">Voltar</button>
+            <button class="botao-login" name="btnCadastrar" id="btnCadastrar"
+                onclick="cadastroUsuario().cadastrarUsuario();">Cadastrar</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+@* <body>
+
+    <main>
+        <!-- Caixa centralizada com campos de login -->
+        <div class="login-box">
+            <img src="../img/pump2_preenchido.png">
+            <label>Login</label>
+            <input class="input-senha-email" name="textboxLogin" id="textboxLogin" type="text">
+            <br>
+            <label>Senha</label>
+            <input class="input-senha-email" name="textboxSenha" id="textboxSenha" type="password">
+            <br>
+            <div style="display: flex">
+                <label class="forgot-password" onclick="alert('Recuperação de senha iniciada')">Esqueci minha senha</label>
+                <a class="forgot-password" asp-area="" asp-controller="Home" asp-action="CadastroUsuario">Cadastre-se</a>
+            </div>
+            <br>
+            <button class="botao-login" name="" id="btnLogin" onclick="loginUsuario().validacaoLogin();">Login</button>
+        </div>
+    </main>
+
+</body>
+
+</html> *@
+

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timeline estilo Twitter</title>
+  <link rel="stylesheet" href="../css/comunidade.css">
+  <script src="../js/comunidade.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<script>
+
+  comunidade().getUsuarioLogado();
+  setTimeout(() => {
+    comunidade().buscarCurtidasGeral();
+  }, 50); 
+  setTimeout(() => {
+    comunidade().buscarRelevanciasGeral();
+  }, 50); 
+  setTimeout(() => {
+    comunidade().carregarPosts();
+  }, 50); 
+      
+</script>
+
+<body data-page="comunidade">
+ <header class="header-container">
+        <div class="search-container">
+            <input type="text" id="textboxPesquisaAnuncios"  class="search-box" placeholder="Pesquise um post" />
+            <button type="submit" onclick="comunidade().pesquisarPostsSeachbar();">
+                <i class="fa fa-search search-icon"></i>
+            </button>
+             <button type="submit" class="btnLimparPesquisa" onclick="comunidade().limparSearchbar();">Limpar</button>
+        </div>
+    </header>
+  <div class="sidebar-container">
+    @await Html.PartialAsync("_MenuLateral")
+  </div>
+  <div id="modalContainer" style="display: none;">
+    <!-- O conteúdo da modal será inserido aqui via AJAX -->
+  </div>
+  <div class="timeline" id="posts-container">
+
+  </div>
+
+  @Html.Partial("_ValidacaoJwt")
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+.divJwt {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9998;
+    color: #00FF0A;
+}
+
+.modalJwt {
+    color: #00FF0A;
+    background-color: #121212;
+    text-align: center;
+    border-radius: 20px;
+    padding: 2%;
+    width: 350px;
+    height: 300px;
+    z-index: 9999;
+}
+
+.camposLogin {
+    background-color: #000000;
+    border: 2px solid #00FF0A;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 8px 0;
+    width: 100%;
+    max-width: 300px;
+    color: #00FF0A;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+#btnLoginJwt {
+    width: 80px;
+    height: 40px;
+    background-color: #00FF0A;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#btnLoginJwt:hover {
+    background-color: #00cc08;
+    transform: scale(1.1);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}

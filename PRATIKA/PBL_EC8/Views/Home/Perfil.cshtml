@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Informações do Usuário</title>
+    <link rel="stylesheet" href="../css/perfil.css">
+    <link rel="stylesheet" href="../css/comunidade.css">
+    <link rel="stylesheet" href="../css/anuncios.css">
+    <link rel="stylesheet" href="../css/marketplace.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    
+</head>
+<body class="perfil">
+    <div class="user-container">
+        <textarea id="idUsuario" rows="1"  hidden></textarea>
+        <div class="user-informacoes-pincipais">
+            <img id="fotoPerfil" alt="Foto do post" class="profile-pic">
+            <span class="nome-perfil" id="nome"></span>
+            <span class="informacoes-perfil" id="usuario"></span>
+        </div>
+        <div class="user-informacoes-adicionais">
+            <span class="informacoes-perfil" id="email"></span>
+            <span class="informacoes-perfil" id="descricao"></span>
+            <span class="informacoes-perfil" id="genero"></span>
+        </div>
+
+        <!-- Abas de paginação -->
+        <div class="tabs">
+            <span class="tab active" id="tab1" name="tab1" onclick="showTab('tab1')">Posts</span>
+            <span class="tab" id="divAnuncio" name="tab2" onclick="showTab('tab2')">Anúncios</span>
+            <span class="tab" id="tab3" name="tab3" onclick="showTab('tab3')">Itens</span>
+        </div>
+
+        <!-- Conteúdo das abas -->
+        <div class="tab-content">
+            <div id="tab1-content" name="tab1-content" class="tab-pane active">
+                <p>Conteúdo da Aba 1</p>
+            </div>
+            <div id="divAnuncios" style="position:relative; top:0px;" name="tab2-content" class="tab-pane"></div>
+            <div id="containerCadastroAnuncio" hidden>
+   
+                <div id="modalCadastroAnuncio" style="height:100%;" class="modal anuncios">
+                    <input id="idAnuncioModal" type="hidden">
+                    <input id="idUsuarioModal" type="hidden">
+                        <div class="modal-content" style="height:auto;">
+                        
+                            <span class="close" onclick="anuncios().fecharModalCadastrarAnuncio()">&times;</span>
+                            <h2>Anúncio</h2>
+                            <br>
+                            <div id="divImagemPerfil">
+                                <img id="imgPreview" src="#" alt="Imagem do anunciante" style="height:120px;width:120px;" />
+                            </div>
+
+                            <label for="textboxTitulo">Título:</label>
+                            <input type="text" id="textboxTitulo" placeholder="Digite o título do anúncio"
+                                class="campos-cadastro" required>
+                            <br>
+                            <br>
+                            <div class="form-group row">
+                                <div class="input-container column input-profissao">
+                                    <label for="textboxProfissao">Profissão:</label>
+                                    <input type="text" id="textboxProfissao" placeholder="Digite sua profissão"
+                                        class="campos-cadastro" required>
+                                    <br>
+                                </div>
+
+                                <div class="input-container column input-estado">
+                                    <label for="comboEstado">Estado:</label>
+                                    <select id="comboEstado" class="campos-cadastro" style="height: 49px;" required>
+                                        <option value="" disabled selected>Selecione</option>
+                                        <option value="AC">AC</option>
+                                        <option value="AL">AL</option>
+                                        <option value="AP">AP</option>
+                                        <option value="AM">AM</option>
+                                        <option value="BA">BA</option>
+                                        <option value="CE">CE</option>
+                                        <option value="DF">DF</option>
+                                        <option value="ES">ES</option>
+                                        <option value="GO">GO</option>
+                                        <option value="MA">MA</option>
+                                        <option value="MT">MT</option>
+                                        <option value="MS">MS</option>
+                                        <option value="MG">MG</option>
+                                        <option value="PA">PA</option>
+                                        <option value="PB">PB</option>
+                                        <option value="PR">PR</option>
+                                        <option value="PE">PE</option>
+                                        <option value="PI">PI</option>
+                                        <option value="RJ">RJ</option>
+                                        <option value="RN">RN</option>
+                                        <option value="RS">RS</option>
+                                        <option value="RO">RO</option>
+                                        <option value="RR">RR</option>
+                                        <option value="SC">SC</option>
+                                        <option value="SP">SP</option>
+                                        <option value="SE">SE</option>
+                                        <option value="TO">TO</option>
+                                    </select>
+                                </div>
+
+                                <div class="input-container column input-cidade">
+                                    <label for="textboxCidade">Cidade:</label>
+                                    <input type="text" id="textboxCidade" placeholder="Digite sua cidade"
+                                        class="campos-cadastro" required>
+                                </div>
+                            </div>
+                            <br>
+                            <label for="textareaDescricao">Descrição:</label>
+                            <textarea id="textareaDescricao" placeholder="Digite uma descrição" class="campos-cadastro"
+                                required></textarea>
+                            <br>
+                            <br>
+                            <button id="btnCadastrarAnuncio" class="btnCriacaoConteudo"
+                            onclick="anuncios().cadastrarAnuncio();">Cadastrar Anúncio</button>
+                    </div>
+                </div>
+            </div>
+            <div id="divItens" style="position:relative; top:0;display: flex;flex-direction: column;align-items: center;left: 0;transform: none;" name="tab3-content" class="tab-pane grid-container">                
+            </div>
+            <div id="containerCadastroItem" hidden>
+                @Html.Partial("~/Views/Marketplace/_CadastroItem.cshtml")
+            </div>
+
+        </div>
+    </div>
+    <div id="conteudo" class="conteudo-tab"></div>
+</body>
+    <script src="../js/comunidade.js"></script>
+    <script src="../js/anuncios.js"></script>
+    <script src="../js/marketplace.js"></script>
+    <script>
+        
+        // Função para exibir o conteúdo da aba selecionada
+        function showTab(tabId) {
+            // Remove a classe 'active' de todas as abas e conteúdos
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            const tabContents = document.querySelectorAll('.tab-pane');
+            tabContents.forEach(content => content.classList.remove('active'));
+
+            // Adiciona a classe 'active' à aba clicada e ao conteúdo correspondente
+            const selectedTab = document.getElementById(tabId);
+            if (selectedTab) {
+                selectedTab.classList.add('active');
+            }
+
+            const selectedContent = document.querySelector(`[name="${tabId}-content"]`);
+            if (selectedContent) {
+                selectedContent.classList.add('active');
+            }
+
+            // Lógica específica para cada aba
+            var idUsuario = $('#idUsuario').val();
+            if (tabId === 'tab1') {
+                comunidade().carregarPostsPorUsuario(idUsuario);
+            } else if (tabId === 'tab2') {
+                anuncios().pesquisarAnunciosPorUsuario();
+            }
+            else{
+                marketplace().pesquisarItensPorUsuario();
+            }
+        }
+
+
+        async function carregarUsuario() {
+            try {
+                // Aguarda o retorno do usuário logado
+                var isPerfil = true;
+                const usuarioLogado = await comunidade().getUsuarioLogado(isPerfil);
+
+                // Atualiza os elementos com as informações do usuário
+
+            } catch (error) {
+                console.error("Erro ao obter o usuário logado:", error);
+            }
+        }
+
+        // Inicia o carregamento ao carregar a página
+        document.addEventListener("DOMContentLoaded", carregarUsuario);
+        setTimeout(() => {
+            showTab('tab1');
+        },100)
+        
+    </script>
+
+</html>

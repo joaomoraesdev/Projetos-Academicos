@@ -1,0 +1,49 @@
+/* Reset CSS por Eric Meyer */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: sans-serif;
+  line-height: 1.6;
+}
+
+/* Remover o estilo padrão de listas */
+ol, ul {
+  list-style: none;
+}
+
+/* Remover bordas e estilos de links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Tabelas: remova espaços em branco e bordas */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Imagens e media: evite o comportamento padrão */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Botões e inputs: remova estilos padrões */
+button, input, select, textarea {
+  background: transparent;
+  border: none;
+  outline: none;
+  font: inherit;
+}
+
+/* Garantir que o texto não seja sublinhado por links em elementos clicáveis */
+a:focus, a:hover {
+  text-decoration: none;
+}
