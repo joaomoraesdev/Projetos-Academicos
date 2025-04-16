@@ -1,0 +1,43 @@
+﻿body {
+}
+
+/* Esconde o input */
+input[type='file'] {
+    display: none
+}
+
+/* Aparência que terá o seletor de arquivo */
+.labelImg {
+    border-radius: 2rem;
+    cursor: pointer;
+    padding: 6px 20px;
+    margin-top: 3vh;
+    width: 100%;
+    display: flex;
+    font-family: Codigra;
+    font-size: 100%;
+    justify-content: center;
+    color: #B00ECA;
+    background-color: white !important;
+    align-items: center;
+    height: calc(1.5em + 0.75rem + 2px);
+}
+
+.espacoImg {
+    border: dashed;
+    border-color: rgba(176, 14, 202, 0.31);
+    border-radius: 2rem;
+    text-align: center;
+    height: 26.5vh;
+}
+
+.estiloImg {
+    max-height: 26vh;
+    width: auto;
+    height: auto;
+    border-radius: 2rem;
+}
+
+#descricao {
+    height: 17vh;
+}

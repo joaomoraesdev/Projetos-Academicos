@@ -1,0 +1,112 @@
+﻿@{
+    ViewData["Title"] = "dastro de Itens";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Style{
+    <link href="~/css/HeaderFunc.css?v=@Guid.NewGuid().ToString()" rel="stylesheet" type="text/css" />
+    <link href="~/css/conteudoFunc.css?v=@Guid.NewGuid().ToString()" rel="stylesheet" type="text/css" />
+    <link href="~/css/itemCard.css" rel="stylesheet" type="text/css" />
+}
+
+<style>
+    .logo {
+        margin-left: -5vw;
+        width: 350px;
+        max-height: 25vh;
+    }
+</style>
+
+<body class="fundoTela">
+    <header>
+        <nav>
+            <a href="/Item/Index"><img class="logo" src="~/images/LOGO-HALF-STACKED-WHITE.png" /></a>
+            <div class="mobile-menu">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <ul class="nav-list">
+                <li><a href="/Item/Index">Produtos</a></li>
+                <li><a href="/Category/Index">Categorias</a></li>
+                <li><a href="/Client/Index">Clientes</a></li>
+                <li><a href="/Item/Dashboards">Dashboards</a></li>
+                <li><a href="/Sobre/Sobre">Sobre</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container divConteudo">
+            <h1 class="textoCadastro">SOBRE</h1>
+
+            <br />
+            <br />
+            <br />
+            <br />
+
+            <h3>
+                Este é um Trabalho Interdisciplinar da turma de Engenharia da Computação do 5° Semestre (EC5),
+                integrando as seguintes materias da grade curricular:
+            </h3>
+
+            <br />
+
+            <ul>
+                <li style="margin-left: 50px"><h4>BANCO DE DADOS II</h4></li>
+                <li style="margin-left: 50px"><h4>GESTÃO DE PROJETOS NA ENGENHARIA DE COMPUTAÇÃO</h4></li>
+                <li style="margin-left: 50px"><h4>LINGUAGEM DE PROGRAMAÇÃO I</h4></li>
+                <li style="margin-left: 50px"><h4>SISTEMAS DIGITAIS E MICROCONTROLADORES</h4></li>
+            </ul>
+
+            <br />
+
+            <h3>
+                Agradecemos a todos os professores que nos ajudaram e contribuiram para o andamento e finalização do projeto!
+            </h3>
+
+            <br />
+            <br />
+            <br />
+            <br />
+
+            <h2 class="textoCadastro">Arquitetura do Projeto</h2>
+
+            <br />
+            <br />
+
+            <div class="row" style="align-items: center">
+                <img src="~/images/fluxograma.png" />
+            </div>
+
+            <br />
+            <br />
+            <br />
+            <br />
+
+            <h2 class="textoCadastro">Integrantes</h2>
+
+            <br />
+            <br />
+
+            <div class="row" style="align-items: center">
+                <img src="~/images/joao-moraes.png" width="30%" height="30%" style="border-radius: 50%; border: solid 3px rgb(255, 0, 255)" />
+                <h1 class="textoCadastro" style="padding-left: 5%; font-family: Codigra">João Moraes</h1>
+            </div>           
+
+            <div class="row" style="align-items: center">
+                <h1 class="textoCadastro" style="padding-right: 5%; padding-left: 26%">Natthalie Bohm</h1>
+                <img src="~/images/natthalie-bohm.png" width="30%" height="30%" style="border-radius: 50%; border: solid 3px rgb(255, 0, 255)" />
+            </div>
+
+            <div class="row" style="align-items: center">
+                <img src="~/images/nicolas-santos.png" width="30%" height="30%" style="border-radius: 50%; border: solid 3px rgb(255, 0, 255)" />
+                <h1 class="textoCadastro" style="padding-left: 5%">Nicolas Santos</h1>
+            </div>
+
+            <div class="row" style="align-items: center">               
+                <h1 class="textoCadastro" style="padding-right: 5%; padding-left: 26%">Ricardo Duarte</h1>
+                <img src="~/images/ricardo-duarte.png" width="30%" height="30%" style="border-radius: 50%; border: solid 3px rgb(255, 0, 255)" />
+            </div>
+        </div>
+    </main>
+</body>

@@ -1,0 +1,39 @@
+﻿.thumb-lg {
+    height: 88px;
+    width: 88px;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 .50rem .75rem rgba(147,147,147);
+}
+
+.m-b-30 {
+    margin-bottom: 30px;
+}
+
+.btn-success,
+.btn.btn-success:hover,
+.btn.btn-success:focus,
+.btn.btn-success:active,
+.btn-success:visited {
+    color: #ffffff;
+    background-color: #FF00FF !important;
+    border-color: #FF00FF !important;
+    max-width: 3.25vw;
+}
+
+.btn-danger,
+.btn.btn-danger:hover,
+.btn.btn-danger:focus,
+.btn.btn-danger:active,
+.btn-danger:visited {
+    color: #ffffff;
+    background-color: #9400D3 !important;
+    border-color: #9400D3 !important;
+    max-width: 3.25vw;
+}
+
+.imgbtn {
+    max-height: 3vh;
+}

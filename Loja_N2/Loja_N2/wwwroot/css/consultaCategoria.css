@@ -1,0 +1,70 @@
+﻿body {
+}
+
+.card {
+    box-shadow: 0 20px 27px 0 rgb(0 0 0 / 5%);
+}
+
+.avatar {
+    width: 3rem;
+    height: 3rem;
+    font-size: .765625rem;
+}
+a {
+text-decoration:none;    
+}
+
+.btn-success,
+.btn.btn-success:hover,
+.btn.btn-success:focus,
+.btn.btn-success:active,
+.btn-success:visited {
+    color: #ffffff;
+    background-color: #FF00FF !important;
+    border-color: #FF00FF !important;
+    max-width: 3.25vw;
+    height: 4.5vh;
+}
+
+.btn-danger,
+.btn.btn-danger:hover,
+.btn.btn-danger:focus,
+.btn.btn-danger:active,
+.btn-danger:visited {
+    color: #ffffff;
+    background-color: #9400D3 !important;
+    border-color: #9400D3 !important;
+    max-width: 3.25vw;
+    height: 4.5vh;
+}
+
+#lblCat {
+    margin-left: 1.5%;
+}
+
+#lblAcao {
+    margin-right: 5%;
+}
+
+#nomeCat {
+    font-size: 2rem;
+    font-family: Veselina;
+    font-size: 100%;
+    color: #71797E;
+    display: flex;
+    line-height: 0.5;
+    margin-left: 4%;
+}
+
+.list-group-flush .list-group-item {
+    height: 10vh;
+}
+
+.align-items-center {
+    margin-top: 1.25%;
+}
+
+@font-face {
+    font-family: "Veselina";
+    src: url('../fonts/veselina.otf');
+}

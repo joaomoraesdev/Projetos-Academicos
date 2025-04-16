@@ -1,0 +1,80 @@
+﻿@model List<ClientViewModel>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+}
+
+@section Style{
+    <link href="~/css/HeaderFunc.css?v=@Guid.NewGuid().ToString()" rel="stylesheet" type="text/css" />
+    <link href="~/css/clientCard.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/conteudoFunc.css?v=@Guid.NewGuid().ToString()" rel="stylesheet" type="text/css" />
+}
+
+<body class="fundoTela">
+    <header>
+        <nav>
+            <a href="/Item/Dashboards"><img class="logo" src="~/images/LOGO-HALF-STACKED-WHITE.png" /></a>
+            <div class="mobile-menu">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <ul class="nav-list">
+                <li><a href="/Item/Index">Produtos</a></li>
+                <li><a href="/Category/Index">Categorias</a></li>
+                <li><a href="/Client/Index">Clientes</a></li>
+                <li><a href="/Item/Dashboards">Dashboards</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container divConteudo">
+            <h1 class="textoCadastro">Listagem de Clientes</h1>
+            <br />
+            <br />
+            <div class="row">
+                @foreach (ClientViewModel client in Model)
+                {
+                    <div class="col-lg-4">
+                        <div class="card m-b-30">
+                            <div class="card-body">
+                                <div class="media">
+                                    <img class="d-flex mr-3 rounded-circle img-thumbnail thumb-lg" src="~/images/iconeUser.png" alt="Generic placeholder image" />
+                                    <div class="media-body">
+                                        <h5 class="mt-0 font-18 mb-1">@client.First_Name @client.Last_Name</h5>
+                                        <p class="text-muted font-14">@client.Email</p>
+                                        <div class="pull-right btn-group-sm float-right">
+                                            <a href="/Client/Edit?id=@client.Id" class="btn btn-success tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Edit">
+                                                <img src="~/images/edit.png" class="imgbtn" />
+                                            </a>
+                                            <a href="javascript:apagarItem(@client.Id)" class="btn btn-danger tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Delete">
+                                                <img src="~/images/delete.png" class="imgbtn" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <a href="/client/create" class="btn btn-info float-right"><img src="~/images/add.png" class="imgbtn" /></a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+        </div>
+    </footer>
+
+    <script src="~/js/ConsultaItem.js"></script>
+</body>
+
+<script>
+    function apagarItem(id) {
+        if (confirm('Deseja realmente apagar este item?'))
+            location.href = 'Delete?id=' + id;
+    }
+</script>

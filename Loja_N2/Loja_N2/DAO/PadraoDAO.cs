@@ -1,0 +1,93 @@
+﻿using Loja_N2.Models;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace Loja_N2.DAO
+{
+    public abstract class PadraoDAO<T> where T : PadraoViewModel
+    {
+        protected string Tabela { get; set; }
+        protected string Schema { get; set; }
+        protected string NomeSpListagem { get; set; } = "spListagem";
+        protected string NomeSpConsulta { get; set; } = "spConsulta";
+        protected abstract SqlParameter[] CriaParametros(T model);
+        protected abstract T MontaModel(DataRow registro);
+        protected bool ChaveIdentity { get; set; } = false;
+
+        protected abstract void SetTabela();
+
+        public PadraoDAO()
+        {
+            SetTabela();
+        }
+
+        public virtual int Insert(T model)
+        {
+            return HelperDAO.ExecutaProc("spInsert_" + Tabela, CriaParametros(model), ChaveIdentity);
+        }
+
+        public virtual void Update(T model)
+        {
+            HelperDAO.ExecutaProc("spUpdate_" + Tabela, CriaParametros(model));
+        }
+
+        public virtual void Delete(int id)
+        {
+            var p = new SqlParameter[]
+            {
+                new SqlParameter("Id", id),
+                new SqlParameter("tabela", Schema + Tabela)
+            };
+            HelperDAO.ExecutaProc("spDelete", p);
+        }
+
+        public virtual T Consulta(int id)
+        {
+            var p = new SqlParameter[]
+            {
+                new SqlParameter("Id", id),
+                new SqlParameter("tabela", Schema+Tabela)
+            };
+
+            var tabela = HelperDAO.ExecutaProcSelect(NomeSpConsulta, p);
+
+            if (tabela.Rows.Count == 0)
+                return null;
+            else
+                return MontaModel(tabela.Rows[0]);
+        }
+
+        public virtual List<T> Listagem()
+        {
+            var p = new SqlParameter[]
+            {
+                new SqlParameter("tabela", Schema+Tabela),
+                new SqlParameter("Ordem", "1") // 1 é o primeiro campo da tabela
+            };
+
+            var tabela = HelperDAO.ExecutaProcSelect(NomeSpListagem, p);
+            List<T> lista = new List<T>();
+
+            foreach (DataRow registro in tabela.Rows)
+                lista.Add(MontaModel(registro));
+
+            return lista;
+        }
+
+        #region ProximoId
+        //public virtual int ProximoId()
+        //{
+        //    var p = new SqlParameter[]
+        //    {
+        //        new SqlParameter("tabela", Schema+Tabela)
+        //    };
+        //    var tabela = HelperDAO.ExecutaProcSelect("spProximoId", p);
+        //    return Convert.ToInt32(tabela.Rows[0][0]);
+        //}
+        #endregion
+    }
+}

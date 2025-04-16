@@ -1,0 +1,19 @@
+﻿.btn-success,
+.btn.btn-success:hover,
+.btn.btn-success:focus,
+.btn.btn-success:active,
+.btn-success:visited {
+    color: #ffffff;
+    background-color: #FF00FF !important;
+    border-color: #FF00FF !important;
+}
+
+.btn-danger,
+.btn.btn-danger:hover,
+.btn.btn-danger:focus,
+.btn.btn-danger:active,
+.btn-danger:visited {
+    color: #ffffff;
+    background-color: #9400D3 !important;
+    border-color: #9400D3 !important;
+}

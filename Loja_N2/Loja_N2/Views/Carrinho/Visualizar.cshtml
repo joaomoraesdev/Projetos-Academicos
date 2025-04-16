@@ -1,0 +1,63 @@
+﻿@model List<CarrinhoViewModel>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Style{
+    <link href="~/css/HeaderFunc.css?v=@Guid.NewGuid().ToString()" rel="stylesheet" type="text/css" />
+    <link href="~/css/conteudoFunc.css?v=@Guid.NewGuid().ToString()" rel="stylesheet" type="text/css" />
+    <link href="~/css/carrinho.css" rel="stylesheet" type="text/css" />
+}
+
+<body class="fundoTela">
+    <header>
+        <nav>
+            <a href="/Carrinho/Index"><img class="logo" src="~/images/LOGO-HALF-STACKED-WHITE.png" /></a>
+            <div class="mobile-menu">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <ul class="nav-list">
+                <li><a href="/Carrinho/Index">Produtos</a></li>
+                <li><a href="/Login/LogOff">Log Out</a></li>
+                <li><a href="/Carrinho/Visualizar">Carrinho</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container divConteudo">
+        <h1 class="textoCadastro">Carrinho</h1>
+        <br />
+        <table class="table text-center">
+            <tr>
+                <th>Imagem</th>
+                <th>Tom</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img id="imgPreview" src="data:image/jpeg;base64,@item.ImagemEmBase64"
+                             class="img-responsive" width="50">
+                    </td>
+                    <td>@item.Item_Name</td>
+                    <td>@item.Quantity</td>
+                    <td>R$ @item.Price.ToString("0.00")</td>
+                </tr>
+            }
+        </table>
+        <br />
+        <div class="btn-group float-right">
+            <a class="btn btn-danger" href="/Carrinho/Index">Retornar para as compras</a>
+            <a class="btn btn-success" href="/Carrinho/EfetuarPedido">Fechar pedido!!!</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+        </div>
+    </footer>
+
+    <script src="~/js/ConsultaItem.js"></script>
+</body>

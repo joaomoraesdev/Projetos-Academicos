@@ -1,0 +1,49 @@
+﻿.fundoTela {
+    background-image: linear-gradient(rgba(90, 34, 139, 0.5), rgba(90, 34, 139, 0.5)), url('../images/maquiagens.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+.divConteudo {
+    background-color: white;
+    min-height: 92vh;
+    height: auto;
+    padding-top: 4%;
+    padding-left: 4%;
+    padding-right: 4%;
+}
+
+@font-face {
+    font-family: "Codigra";
+    src: url('../fonts/CodigraRegular-GOAeq.ttf');
+}
+
+.textoCadastro {
+    font-family: Codigra;
+    font-size: 300%;
+    color: #B00ECA;
+    display: flex;
+    justify-content: center;
+    line-height: 0.5;
+}
+
+html, body {
+    height: 100vh;
+}
+
+.btn-info,
+.btn.btn-info:hover,
+.btn.btn-info:focus,
+.btn.btn-info:active,
+.btn-info:visited {
+    color: #ffffff;
+    background-color: rgba(90, 34, 139) !important;
+    border-color: rgba(90, 34, 139) !important;
+    margin-bottom: 5%;
+}
+
+.imgbtn {
+    height: 3vh;
+}

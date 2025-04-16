@@ -1,0 +1,85 @@
+﻿@model List<CategoryViewModel>
+@{
+
+}
+
+@section Style{
+    <link href="~/css/HeaderFunc.css?v=@Guid.NewGuid().ToString()" rel="stylesheet" type="text/css" />
+    <link href="~/css/conteudoFunc.css?v=@Guid.NewGuid().ToString()" rel="stylesheet" type="text/css" />
+    <link href="~/css/consultaCategoria.css" rel="stylesheet" type="text/css" />
+}
+
+<body class="fundoTela">
+    <header>
+        <nav>
+            <a href="/Item/Dashboards"><img class="logo" src="~/images/LOGO-HALF-STACKED-WHITE.png" /></a>
+            <div class="mobile-menu">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <ul class="nav-list">
+                <li><a href="/Item/Index">Produtos</a></li>
+                <li><a href="/Category/Index">Categorias</a></li>
+                <li><a href="/Client/Index">Clientes</a></li>
+                <li><a href="/Item/Dashboards">Dashboards</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container divConteudo">
+            <h1 class="textoCadastro">Listagem de Categorias</h1>
+            <br />
+            <a href="/category/create" class="btn btn-info"><img src="~/images/add.png" class="imgbtn" /></a>
+            <br />
+
+            @if (Model != null)
+            {
+                <div class="row">
+                    <div class="col-xl-12 mb-3 mb-lg-5">
+                        <div class="card">
+                            <div class="d-flex card-header justify-content-between">
+                                <h5 class="me-3 mb-0" id="lblCat">Categorias</h5>
+                                <h5 class="me-3 mb-0" id="lblAcao">Ações</h5>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-group list-group-flush">
+                                    @foreach (CategoryViewModel cat in Model)
+                                    {
+                                        <!--List-item-->
+                                        <li class="list-group-item pt-0">
+                                            <div class="d-flex align-items-center">
+                                                <div class="flex-shrink-0 me-3">
+                                                    <img src="~/images/cosmeticos.jpg" alt="" class="avatar rounded-circle" />
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <h6 class="mb-0" id="nomeCat">  @cat.Category_Name</h6>
+                                                </div>
+                                                <div class="pull-right btn-group-sm float-right">
+                                                    <a href="/Category/Edit?id=@cat.Id" class="btn btn-success tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Edit">
+                                                        <img src="~/images/edit.png" class="imgbtn" />
+                                                    </a>
+                                                    <a href="javascript:DeletarCategoria(@cat.Id)" class="btn btn-danger tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Delete">
+                                                        <img src="~/images/delete.png" class="imgbtn" />
+                                                    </a>
+                                                </div>
+
+                                            </div>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </main>
+</body>
+
+<script>
+    function DeletarCategoria(id) {
+        if (confirm('Confirma a exclusão do registro?'))
+            location.href = 'Delete?id=' + id;
+    }
+</script>

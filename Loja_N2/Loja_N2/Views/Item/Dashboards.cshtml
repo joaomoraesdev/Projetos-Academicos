@@ -1,0 +1,161 @@
+﻿@using System.Web;
+@model DashboardViewModel;
+
+@{
+    ViewData["Title"] = "dastro de Itens";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Style{
+    <link href="~/css/HeaderFunc.css?v=@Guid.NewGuid().ToString()" rel="stylesheet" type="text/css" />
+    <link href="~/css/conteudoFunc.css?v=@Guid.NewGuid().ToString()" rel="stylesheet" type="text/css" />
+    <link href="~/css/itemCard.css" rel="stylesheet" type="text/css" />
+}
+
+<body class="fundoTela">
+    <header>
+        <nav>
+            <a href="/Item/Dashboards"><img class="logo" src="~/images/LOGO-HALF-STACKED-WHITE.png" /></a>
+            <div class="mobile-menu">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <ul class="nav-list">
+                <li><a href="/Item/Index">Produtos</a></li>
+                <li><a href="/Category/Index">Categorias</a></li>
+                <li><a href="/Client/Index">Clientes</a></li>
+                <li><a href="/Item/Dashboards">Dashboards</a></li>
+                <li><a href="/Sobre/Sobre">Sobre</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container divConteudo">
+            <div class="row">
+                <div class="col-md-4" style="text-align: center">
+                    <h2 class="textoCadastro" style="margin-left: 470px">Dashboards</h2>                    
+                </div>
+            </div>
+
+            <br />
+            <br />
+
+            <div class="row">
+                <div class="col-md-4">
+                    <h2 style="padding-left: 30px">Mais Disponíveis</h2>
+                    <canvas id="estoque" width="400" height="150"></canvas>
+                </div>
+
+                <div class="col-md-4">
+                    <h2 style="padding-left: 40px">Mais Vendidos</h2>
+                    <canvas id="maisVendidos" width="400" height="150"></canvas>
+                </div>
+
+                <div class="col-md-4">
+                    <h2 style="padding-left: 30px">Menos Vendidos</h2>
+                    <canvas id="menosVendidos" width="400" height="150"></canvas>
+                </div>
+            </div>
+
+            <br />
+            <br />
+
+            <div class="row" style="text-align: justify">
+                <label style="color: darkgrey">
+                    As informações disponibilizadas nesses dashboards são dinâmicas, atualizando conforme operações
+                    forem feitas, e itens adquiridos ou inseridos no sistema.
+                </label>
+            </div>
+        </div>
+    </main>
+</body>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            const estoque = document.getElementById('estoque');
+
+            new Chart(estoque, {
+                type: 'doughnut',
+                data: {
+                    labels: [
+                        '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model.Item1))',
+                        '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model.Item2))',
+                        '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model.Item3))'
+                    ],
+                    datasets: [{
+                        label: 'UNIDADES',
+                        data: [
+                            @Model.Qtd1,
+                            @Model.Qtd2,
+                            @Model.Qtd3
+                        ],
+                        backgroundColor: [
+                            'rgb(204, 0, 255)',
+                            'rgb(255, 0, 255)',
+                            'rgb(255, 153, 255)'
+                        ],
+                        hoverOffset: 4
+                    }]
+                }
+            });
+
+            const maisVendidos = document.getElementById('maisVendidos');
+
+            new Chart(maisVendidos, {
+                type: 'doughnut',
+                data: {
+                    labels: [
+                        '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model.MaisVendido1))',
+                        '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model.MaisVendido2))',
+                        '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model.MaisVendido3))'
+                    ],
+                    datasets: [{
+                        label: 'UNIDADES',
+                        data: [
+                            @Model.QtdMaisVendido1,
+                            @Model.QtdMaisVendido2,
+                            @Model.QtdMaisVendido3
+                        ],
+                        backgroundColor: [
+                            'rgb(204, 0, 255)',
+                            'rgb(255, 0, 255)',
+                            'rgb(255, 153, 255)'
+                        ],
+                        hoverOffset: 4
+                    }]
+                }
+            });
+
+            const menosVendidos = document.getElementById('menosVendidos');
+
+            new Chart(menosVendidos, {
+                type: 'doughnut',
+                data: {
+                    labels: [
+                        '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model.MenosVendido1))',
+                        '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model.MenosVendido2))',
+                        '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model.MenosVendido3))'
+                    ],
+                    datasets: [{
+                        label: 'UNIDADES',
+                        data: [
+                            @Model.QtdMenosVendido1,
+                            @Model.QtdMenosVendido2,
+                            @Model.QtdMenosVendido3
+                        ],
+                        backgroundColor: [
+                            'rgb(204, 0, 255)',
+                            'rgb(255, 0, 255)',
+                            'rgb(255, 153, 255)'
+                        ],
+                        hoverOffset: 4
+                    }]
+                }
+            });
+        });
+    </script>
+}

@@ -1,0 +1,34 @@
+﻿body {
+}
+
+.newarrival {
+    background: rgba(176, 14, 202, 0.31);
+    width: 50px;
+    color: white;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.col-md-7 h2 {
+    color: #555;
+}
+
+
+.price {
+    color: rgba(176, 14, 202);
+    font-size: 26px;
+    font-weight: bold;
+    padding-top: 20px;
+}
+
+.btn {
+    margin-top: 5%;
+}
+
+p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* number of lines to show */
+    -webkit-box-orient: vertical;
+}

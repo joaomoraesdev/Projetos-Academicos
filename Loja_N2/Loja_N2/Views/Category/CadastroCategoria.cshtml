@@ -1,0 +1,47 @@
+﻿@model CategoryViewModel
+@{
+    ViewData["Title"] = "Cadastro de Categoria";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Style {
+    <link href="~/css/cadastrosGerais.css" rel="stylesheet" type="text/css" />
+}
+
+<body class="telaFundo">
+    <form action="Save" method="post">
+        <div class="container">
+            <input type="hidden" name="Operacao" value="@ViewBag.Operacao" />
+
+            @if (ViewBag.Operacao == "I")
+            {
+                <input asp-for="Id" class="form-control" hidden />
+                <h2 class="textoCadastro">Cadastro de Categoria</h2>
+            }
+            else
+            {
+                <h2 class="textoCadastro">Editar Categoria</h2>
+
+                <br />
+
+                <div class="form-group">
+                    <label for="Id" class="control-label">Id</label>
+                    <input asp-for="Id" class="form-control" readonly />
+                    <span asp-validation-for="Id" class="text-danger"></span>
+                </div>
+            }
+
+            <br />
+
+            <div class="form-group">
+                <label for="Category_Name" class="control-label">Nome da Categoria</label>
+                <input asp-for="Category_Name" class="form-control" />
+                <span asp-validation-for="Category_Name" class="text-danger"></span>
+            </div>
+
+            <br />
+            <input class="btn btn-success botaoLogin" type="submit" value="SALVAR CATEGORIA" />
+            <br />
+        </div>
+    </form>
+</body>

@@ -1,0 +1,60 @@
+﻿@model CarrinhoViewModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+}
+
+@section Style{
+    <link href="~/css/HeaderFunc.css?v=@Guid.NewGuid().ToString()" rel="stylesheet" type="text/css" />
+    <link href="~/css/conteudoFunc.css?v=@Guid.NewGuid().ToString()" rel="stylesheet" type="text/css" />
+    <link href="~/css/productScreen.css" rel="stylesheet" type="text/css" />
+}
+
+<body class="fundoTela">
+    <header>
+        <nav>
+            <a href="/Carrinho/Index"><img class="logo" src="~/images/LOGO-HALF-STACKED-WHITE.png" /></a>
+            <div class="mobile-menu">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <ul class="nav-list">
+                <li><a href="/Carrinho/Index">Produtos</a></li>
+                <li><a href="/Login/LogOff">Log Out</a></li>
+                <li><a href="/Carrinho/Visualizar">Carrinho</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container divConteudo">
+        <div class="row">
+            <div class="col-md-5">
+                <img class="d-block w-100" src="data:image /jpeg;base64,@Model.ImagemEmBase64" />
+            </div>
+            <div class="col-md-7">
+                <form asp-action="AdicionarCarrinho">
+                    <input asp-for="Id" hidden />
+                    <input asp-for="Quantity" value="1" hidden />
+                    <p class="newarrival text-center">NEW</p>
+                    <h2>@Model.Item_Name</h2>
+                    <p class="price">R$ @Model.Price.ToString("0.00")</p>
+                    <p><b>Disponibilidade:</b> Em estoque</p>
+                    <p><b>Descrição:</b> @Model.Item_Description</p>
+                    <p><b>Marca:</b> Bruna Tavares</p>
+                    <label>Quantidade: @Model.Quantity</label>
+                    <br />
+                    <input type="submit" class="btn btn-info" value="Adicionar ao carrinho"/>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+        </div>
+    </footer>
+
+    <script src="~/js/ConsultaItem.js"></script>
+</body>

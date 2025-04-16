@@ -1,0 +1,125 @@
+﻿@model ItemViewModel
+@{
+    ViewData["Title"] = "Cadastro de Itens";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Style {
+    <link href="~/css/cadastrosGerais.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/cadastroItem.css" rel="stylesheet" type="text/css" />
+}
+
+<body class="telaFundo">
+    <form action="Save" method="post" enctype="multipart/form-data">
+        <div class="container">
+            <input type="hidden" name="Operacao" value="@ViewBag.Operacao" />
+
+            @if (ViewBag.Operacao == "I")
+            {
+                <h2 class="textoCadastro">Cadastro de Item</h2>
+                <input asp-for="Id" type="hidden">
+            }
+            else
+            {
+                <h2 class="textoCadastro">Editar Item</h2>
+
+                <br />
+
+                <div class="form-group">
+                    <label for="Id" class="control-label">Id</label>
+                    <input asp-for="Id" class="form-control" readonly />
+                    <span asp-validation-for="Id" class="text-danger"></span>
+                </div>
+            }
+
+            <br />
+
+            <div class="row">
+                <div class="col-7">
+                    <div class="form-group">
+                        <label for="Item_Name" class="control-label">Tom</label>
+                        <input asp-for="Item_Name" class="form-control" />
+                        <span asp-validation-for="Item_Name" class="text-danger"></span>
+                    </div>
+
+                    <br />
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="Price" class="control-label">Preço</label>
+                                <input asp-for="Price" class="form-control" />
+                                <span asp-validation-for="Price" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="Quantity" class="control-label">Quantidade no Estoque</label>
+                                <input asp-for="Quantity" class="form-control" />
+                                <span asp-validation-for="Quantity" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br />
+
+                    <div class="form-group">
+                        <label for="Category_Id" class="control-label">Categoria</label>
+                        <select asp-for="Category_Id" asp-items="ViewBag.Categorias" class="form-control"></select>
+                        <span asp-validation-for="Category_Id" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                        <div>
+                            <label for="Imagem" class="control-label">Imagem do Produto:</label>
+                        </div>
+                        @if (ViewBag.Operacao != "I")
+                        {
+                            <div class="espacoImg">
+                                <img id="imgPreview" src="data:image/jpeg;base64,@Model.ImagemEmBase64" class="img-responsive estiloImg">
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="espacoImg">
+                                <img id="imgPreview" src="~/images/produtoPlaceholder.png" class="img-responsive estiloImg">
+                            </div>
+                        }
+                        <div>
+                            <span asp-validation-for="Imagem" class="text-danger"></span>
+                            <label class="labelImg" for='Imagem'>Selecionar um arquivo &#187;</label>
+                            <input type="file" name="Imagem" id="Imagem" onchange="exibirImagem()" class="btn btn-secondary">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br />
+
+            <div class="form-group">
+                <label for="Item_Description" class="control-label">Descrição</label>
+                <textarea asp-for="Item_Description" id="descricao" class="form-control"></textarea>
+                <span asp-validation-for="Item_Description" class="text-danger"></span>
+            </div>
+
+            <br />
+
+            <input type="submit" value="SALVAR ITEM" class="btn btn-success botaoLogin" />
+            <br />
+        </div>
+    </form>
+</body>
+
+
+<script>
+    function exibirImagem() {
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("Imagem").files[0]);
+        oFReader.onload = function (oFREvent) {
+            document.getElementById("imgPreview").src = oFREvent.target.result;
+        };
+    }
+</script>

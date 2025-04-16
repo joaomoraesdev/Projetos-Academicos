@@ -1,0 +1,114 @@
+﻿.FundoMaquiagem {
+    position: fixed;
+    width: 75%;
+    height: 100%;
+    top: 0%;
+    background-image: linear-gradient(rgba(90, 34, 139, 0.5), rgba(90, 34, 139, 0.5)), url('../images/maquiagens.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    left: 30%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.LoginCard {
+    position: absolute;
+    width: 31%;
+    height: 25%;
+    left: 2.3%;
+    top: 17%;
+}
+
+.TelaGeral {
+    background-color: rgba(0,0,0);
+}
+
+.btn-primary,
+.btn.btn-primary:hover,
+.btn.btn-primary:focus,
+.btn.btn-primary:active,
+.btn-primary:visited {
+    color: #ffffff;
+    background-color: rgba(90, 34, 139) !important;
+    border-color: rgba(90, 34, 139) !important;
+}
+
+.botaoLogin {
+    width: 100%
+}
+
+#linkCadastro {
+    font-weight: bold;
+    color: rgba(0,0,0);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+@font-face {
+    font-family: "Codigra";
+    src: url('../fonts/CodigraRegular-GOAeq.ttf');
+}
+
+#textoLogin {
+    font-family: Codigra;
+    font-size: 400%;
+    color: #B00ECA;
+    display: flex;
+    justify-content: center;
+}
+
+#funcCard {
+    display: none;
+}
+
+.custom-control-input:checked ~ .custom-control-label::before {
+    background-color: rgba(90, 34, 139) !important;
+    border: rgba(90, 34, 139) !important;
+}
+
+.custom-control-label::before {
+    background-color: rgba(90, 34, 139) !important;
+    border: rgba(90, 34, 139) !important;
+}
+
+.custom-switch .custom-control-label::after {
+    background-color: #ffffff;
+}
+
+#switch {
+    width: 100%;
+}
+
+#logoLogin {
+    max-width: 20%;
+    width: auto;
+    height: auto;
+    position: fixed;
+    justify-content: center;
+    top: -5%;
+    left: 80%;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border-color: rgba(90, 34, 139);
+    border: 1px solid rgba(90, 34, 139);
+}

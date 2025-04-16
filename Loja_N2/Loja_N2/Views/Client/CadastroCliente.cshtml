@@ -1,0 +1,146 @@
+﻿@model ClientViewModel
+@{
+    ViewData["Title"] = "Cadastro de Cliente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Style{
+    <link href="~/css/cadastrosGerais.css" rel="stylesheet" type="text/css" />
+}
+
+<body class="telaFundo">
+    <form action="Save" method="post">
+        <div class="container">
+            <input type="hidden" name="Operacao" value="@ViewBag.Operacao" />
+
+            @if (ViewBag.Operacao == "I")
+            {
+                <input asp-for="Id" type="hidden">
+                <h2 class="textoCadastro">Cadastro de Cliente</h2>
+                <p class="textoWelcome">Seja bem-vindo!</p>
+                <br />
+            }
+            else
+            {
+                <h2 class="textoCadastro">Editar Cliente</h2>
+
+                <br />
+
+                <div class="form-group">
+                    <label for="Id" class="control-label">Id</label>
+                    <input asp-for="Id" class="form-control" readonly />
+                    <span asp-validation-for="Id" class="text-danger"></span>
+                </div>
+
+                <br />
+            }
+
+            <div class="row py-6">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="First_Name" class="control-label">Primeiro nome</label>
+                        <input asp-for="First_Name" class="form-control" />
+                        <span asp-validation-for="First_Name" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                        <label for="Last_Name" class="control-label">Último nome</label>
+                        <input asp-for="Last_Name" class="form-control" />
+                        <span asp-validation-for="Last_Name" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <div class="form-group">
+                        <label for="Birth_Date" class="control-label">Data de Nascimento</label>
+                        <input class="form-control" type="date" Name="Birth_Date" value="@Model.Birth_Date.ToString("yyyy-MM-dd")" />
+                        <span asp-validation-for="Birth_Date" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <br />
+
+            <div class="row py-6">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="Email" class="control-label">E-mail</label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                        <label for="Telephone" class="control-label">Telefone</label>
+                        <input asp-for="Telephone" class="form-control" />
+                        <span asp-validation-for="Telephone" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <br />
+
+            <div class="row py-6">
+
+                <div class="col-3">
+                    <div class="form-group">
+                        <label for="Cep" class="control-label">CEP</label>
+                        <div class="btn-group inline" role="group">
+                            <input asp-for="Cep" class="form-control" />
+                            <input type="button" name="btnBuscaCEP" value="Buscar" onclick="buscaCEP()" class="btn btn-success botaoCEP" />
+                        </div>
+                        <span asp-validation-for="Cep" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-1">
+                    <div class="form-group">
+                        <label for="Uf" class="control-label">UF</label>
+                        <input asp-for="Uf" class="form-control" />
+                        <span asp-validation-for="Uf" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <div class="form-group">
+                        <label for="Localidade" class="control-label">Cidade</label>
+                        <input asp-for="Localidade" class="form-control" />
+                        <span asp-validation-for="Localidade" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-5">
+                    <div class="form-group">
+                        <label for="Logradouro" class="control-label">Logradouro</label>
+                        <input asp-for="Logradouro" class="form-control" />
+                        <span asp-validation-for="Logradouro" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <br />
+
+            <div class="form-group">
+                <label for="Client_Password" class="control-label">Senha</label>
+                <input asp-for="Client_Password" class="form-control" />
+                <span asp-validation-for="Client_Password" class="text-danger"></span>
+            </div>
+
+            <br />
+
+
+            @if (ViewBag.Operacao == "I")
+            {
+                <input type="submit" value="CADASTRAR" class="btn btn-success botaoLogin" />
+                <a class="textoVoltar" href="/Login/Index">VOLTAR PARA LOGIN</a>
+            }
+            else
+            {
+                <input type="submit" value="ALTERAR" class="btn btn-success botaoLogin" />
+            }
+        </div>
+    </form>
+</body>

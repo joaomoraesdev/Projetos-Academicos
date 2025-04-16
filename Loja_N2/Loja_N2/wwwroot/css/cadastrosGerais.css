@@ -1,0 +1,143 @@
+﻿body {
+}
+
+html, body {
+    height: 100vh;
+}
+
+.container {
+    background-color: rgba(0,0,0);
+    min-height: 100vh;
+    height: auto;
+    padding-top: 3.0%;
+    padding-bottom: 2.0%;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+body {
+}
+
+.telaFundo {
+    background-image: linear-gradient(rgba(90, 34, 139, 0.5), rgba(90, 34, 139, 0.5)), url('../images/maquiagens.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+.form-control {
+    background-color: rgba(176, 14, 202, 0.31);
+    border-color: rgba(176, 14, 202, 0.31);
+    border: 1px solid rgba(176, 14, 202, 0.31);
+    color: #92929D;
+}
+
+    .form-control:focus {
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        background-color: rgba(176, 14, 202, 0.31);
+        border-color: rgba(213, 184, 255);
+        border: 1px solid rgba(213, 184, 255);
+        color: #92929D;
+    }
+
+.control-label {
+    color: #92929D;
+}
+
+@font-face {
+    font-family: "Codigra";
+    src: url('../fonts/CodigraRegular-GOAeq.ttf');
+}
+
+@font-face {
+    font-family: "Veselina";
+    src: url('../fonts/veselina.otf');
+}
+
+.textoCadastro {
+    font-family: Codigra;
+    font-size: 400%;
+    color: #B00ECA;
+    display: flex;
+    justify-content: center;
+    line-height: 0.5;
+}
+
+.textoWelcome {
+    font-family: Veselina;
+    font-size: 150%;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-success,
+.btn.btn-success:hover,
+.btn.btn-success:focus,
+.btn.btn-success:active,
+.btn-success:visited {
+    color: #B00ECA;
+    background-color: rgba(213, 184, 255) !important;
+    border-color: rgba(90, 34, 139) !important;
+}
+
+.botaoLogin {
+    width: 50%;
+    display: flex;
+    margin: 0 auto;
+    border-radius: 2rem;
+    font-family: Codigra;
+    font-size: 200%;
+    justify-content: center;
+    color: #B00ECA;
+    background-color: white !important;
+    align-items: center;
+    padding: 0rem 0.75rem;
+}
+
+.botaoCEP {
+    display: flex;
+    font-family: Codigra;
+    font-size: 100%;
+    justify-content: center;
+    color: #B00ECA;
+    background-color: white !important;
+    align-items: center;
+}
+
+.textoVoltar {
+    font-family: Veselina;
+    font-size: 100%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+.form-control:disabled, .form-control[readonly] {
+    background-color: rgba(176, 14, 202, 0.31);
+    opacity: 1;
+}

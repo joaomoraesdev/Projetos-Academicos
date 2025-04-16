@@ -1,0 +1,65 @@
+﻿body {
+}
+
+.imgProduto {
+    max-height: 17.5vh;
+    max-width: 20vh;
+    width: auto;
+    height: auto;
+    border-radius: 2rem;
+    align-content: center;
+    display: block;
+    margin: 0px auto;
+}
+
+.btn-dark,
+.btn.btn-dark:hover,
+.btn.btn-dark:focus,
+.btn.btn-dark:active,
+.btn-dark:visited {
+    color: #ffffff;
+    background-color: #FF00FF !important;
+    border-color: #FF00FF !important;
+    margin-top: 2vh;
+    margin-bottom: 1vh;
+    max-width: 3.25vw;
+    height: 5.5vh;
+}
+
+.btn-danger,
+.btn.btn-danger:hover,
+.btn.btn-danger:focus,
+.btn.btn-danger:active,
+.btn-danger:visited {
+    color: #ffffff;
+    background-color: #9400D3 !important;
+    border-color: #9400D3 !important;
+    max-width: 3.25vw;
+    height: 5.5vh;
+}
+
+.media-body {
+    margin-left: 2%;
+}
+
+.mb-lg-0, .my-lg-0 {
+    width: 11vw;
+}
+
+.col-md-12 {
+    margin-bottom: 5vh;
+    margin-top: -3vh;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 .50rem .75rem rgba(147,147,147);
+}
+
+p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* number of lines to show */
+    -webkit-box-orient: vertical;
+}
